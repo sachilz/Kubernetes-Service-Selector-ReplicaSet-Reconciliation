@@ -10,47 +10,6 @@
 
 A practical, beginner-friendly lab guide built on a local **Minikube** cluster on **WSL2** to explore core Kubernetes architecture, workload scheduling, service discovery, dynamic scaling, pod self-healing, and real-world incident troubleshooting.
 
----
-
-## 🏛️ Lab Architecture & Traffic Flow
-
-```text
- [ Local Developer Machine / Browser ]
-                  │
-                  │ (HTTP Traffic to localhost:8080 via kubectl port-forward or NodePort 30080)
-                  ▼
-┌────────────────────────────────────────────────────────────────────────┐
-│ Minikube Kubernetes Node                                               │
-│                                                                        │
-│  ┌──────────────────────────────────────────────────────────────────┐  │
-│  │ static-website-service (NodePort: 30080 | ClusterIP: 10.104.x.x)  │  │
-│  │ Selector: app=static-website                                     │  │
-│  └──────────────────────────────────┬───────────────────────────────┘  │
-│                                     │                                  │
-│                       Dynamic Traffic Load Balancing                   │
-│                       via EndpointSlices (Port 80)                     │
-│                                     │                                  │
-│         ┌───────────────────────────┼───────────────────────────┐      │
-│         ▼                           ▼                           ▼      │
-│  ┌───────────────┐           ┌───────────────┐           ┌──────────┐  │
-│  │ Pod Replica 1 │           │ Pod Replica 2 │           │ Pod Rep 3│  │
-│  │ 10.244.0.2:80 │           │ 10.244.0.3:80 │           │ ...      │  │
-│  │ static-website│           │ static-website│           │ static-..│  │
-│  └───────────────┘           └───────────────┘           └──────────┘  │
-│                                                                        │
-│ ────────────────────────────────────────────────────────────────────── │
-│ Control Plane Components (kube-system Namespace)                       │
-│ ┌───────────────┐  ┌───────────────┐  ┌───────────────┐  ┌───────────┐ │
-│ │ kube-apiserver│  │     etcd      │  │kube-scheduler │  │ kube-ctrl │ │
-│ └───────────────┘  └───────────────┘  └───────────────┘  └───────────┘ │
-│ ┌───────────────┐  ┌───────────────┐  ┌───────────────┐                │
-│ │    CoreDNS    │  │  kube-proxy   │  │    kindnet    │                │
-│ └───────────────┘  └───────────────┘  └───────────────┘                │
-└────────────────────────────────────────────────────────────────────────┘
-```
-
----
-
 ## 📚 Step-by-Step Learning Track
 
 Follow these modules in numerical order to master Kubernetes cluster operations:
