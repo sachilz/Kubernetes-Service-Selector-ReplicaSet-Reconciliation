@@ -3,3 +3,5 @@ Hands-on Kubernetes architecture lab using Minikube to explore cluster component
 
 ## Guides & Documentation
 - [Basic Inspection Commands](command/kubectl-commands.md)
+- [Workload, Service & System Inspection](workload-inspection/workload-service-inspection.md)
+- [Service Networking & Endpoints Inspection](service-networking/service-endpoints-inspection.md)
