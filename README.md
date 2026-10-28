@@ -7,3 +7,4 @@ Hands-on Kubernetes architecture lab using Minikube to explore cluster component
 - [Service Networking & Endpoints Inspection](service-networking/service-endpoints-inspection.md)
 - [Workload Scaling & Port Forwarding Guide](scaling-and-access/scaling-and-port-forwarding.md)
 - [Kubernetes Self-Healing & Pod Lifecycle Guide](self-healing/pod-self-healing.md)
+- [Service Discovery & Label Selector Troubleshooting](service-discovery-troubleshooting/service-label-matching.md)
